@@ -1,0 +1,28 @@
+@import '../../../../styles/partials/_colors.scss';
+
+$spinner-size: 15px;
+$spinner-active-color: $blue-mid;
+$spinner-background-color: #cfd0d1;
+
+@keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+}
+
+.spinner::before {
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: running;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+    position: absolute;
+    content: "";
+    border: solid 2px $spinner-background-color;
+    border-bottom-color: $spinner-active-color;
+    border-radius: 50%;
+    height: $spinner-size;
+    width: $spinner-size;
+}

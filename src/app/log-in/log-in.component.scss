@@ -1,0 +1,39 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/mixins';
+
+.bat-log-in {
+    @include center;
+
+    h1 {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sign-in-area {
+        @include bat-area;
+
+        .password-above-area {
+            display: flex;
+            justify-content: space-between;
+
+            .forgot-password-link {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .create-account-area {
+        height: 62px;
+        margin-top: 18px;
+        border: 1px solid $main-light;
+        border-radius: 6px;
+
+        p {
+            font-size: 14px;
+            text-align: center;
+            line-height: 62px;
+            margin: 0;
+        }
+    }
+}

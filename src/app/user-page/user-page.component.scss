@@ -1,0 +1,67 @@
+@import '../../styles/partials/colors';
+@import '../../styles/partials/mixins';
+
+.user-area {
+    @include bat-area;
+    padding: 9px 18px;
+    margin-top: 20px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 17px;
+
+    .user-img {
+        height: 70px;
+        width: 70px;
+        background-color: $blue-mid;
+        border-radius: 100%;
+    }
+
+    .user-info {
+        margin-top: 5px;
+
+        p {
+            margin: 0;
+    
+            &#name {
+                font-size: 13px;
+            }
+    
+            &#online {
+                font-size: 11px;
+                color: $blue-mid;
+            }
+        }
+    }
+}
+
+.friend {
+    @include transparent-bat-area;
+    padding: 9px 18px;
+    display: flex;
+    gap: 17px;
+    margin-bottom: 14px;
+
+    .friend-img {
+        height: 70px;
+        width: 70px;
+        background-color: $blue-mid;
+        border-radius: 100%;
+    }
+
+    .friend-info {
+        margin-top: 5px;
+
+        p {
+            margin: 0;
+    
+            &.friend-name {
+                font-size: 13px;
+            }
+    
+            &.friend-last-seen {
+                font-size: 11px;
+                color: $default-gray;
+            }
+        }
+    }
+}

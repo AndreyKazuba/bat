@@ -1,0 +1,99 @@
+@import './partials/_colors.scss';
+
+@font-face {
+    font-family: Inter;
+    src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+body {
+    background-color: $main-dark;
+    font-family: Inter;
+}
+
+p, h1, h2, h3, h4, h5, h6, label {
+    color: $font-default;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"
+}
+
+.input-error-message {
+    font-size: 12px;
+    margin: 2px 0px 0px 4px;
+    color: $red-mid;
+}
+
+button, input[type="submit"] {
+    height: 32px;
+    border: none;   
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+
+    background-color: $green-mid;
+
+    &:hover {
+        background-color: $green-light;
+    }
+    
+    &:active {
+        background-color: $green-super-light;
+    }
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    display: block;
+    width: 100%;
+    height: 35px;
+    border-width: 1px;
+    background-color: $main-dark;
+    border-color: $main-light;
+    border-radius: 6px;
+    border-style: solid;
+    color: $font-default;
+    text-indent: 8px;
+
+    &::selection {
+        background-color: $blue-mid;
+        color: $main-mid;
+    }
+
+    &:focus {
+        outline: 2px $blue-mid solid;
+        border-color: $blue-mid;
+    }
+
+    &:hover {
+        outline: 2px $blue-mid solid;
+        border-color: $blue-mid;
+    }
+
+    &.ng-invalid.ng-dirty {
+        border-color: $red-mid;
+        outline-color: $red-mid;
+    }
+}
+
+label {
+    color: $font-white;
+    display: inline-block;
+    font-size: 13px;
+    margin: 0 0 4px 6px;
+}
+
+a {
+    display: inline-block;
+    color: $blue-mid;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

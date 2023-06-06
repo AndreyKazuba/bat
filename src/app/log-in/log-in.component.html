@@ -1,0 +1,32 @@
+<div class="bat-log-in">
+    <h1>Sign in to account</h1>
+    <div class="sign-in-area">
+        <form #signInForm="ngForm" name="signInForm" novalidate>
+            <label for="email">Email</label>
+            <div [style.margin-bottom]="emailInput.valid || emailInput.pristine ? '14px' : '8px'">
+                <input [(ngModel)]="email" id="email" name="email" form="signInForm" class="email" type="email"
+                    autocomplete="off" #emailInput="ngModel" required>
+                <div class="input-error-message" [hidden]="emailInput.valid || emailInput.pristine">
+                    <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+                    <div *ngIf="emailInput.errors?.['pattern']">Incorrect email.</div>
+                </div>
+            </div>
+            <div class="password-above-area">
+                <label for="password">Password</label>
+                <a href="./log-in" class="forgot-password-link">Forgot password?</a>
+            </div>
+            <div [style.margin-bottom]="passwordInput.valid || passwordInput.pristine ? '18px' : '8px'">
+                <input [(ngModel)]="password" id="password" name="password" form="signInForm" class="password"
+                    type="password" #passwordInput="ngModel" required>
+                <div class="input-error-message" [hidden]="passwordInput.valid || passwordInput.pristine">
+                    Password is required.
+                </div>
+            </div>
+            <bat-spinner-button #signInButton class="sign-in-button" value="Sign in"
+                (click)="onSignIn($event, signInForm)"></bat-spinner-button>
+        </form>
+    </div>
+    <div class="create-account-area">
+        <p>New to Bat? <a>Create an account</a>.</p>
+    </div>
+</div>

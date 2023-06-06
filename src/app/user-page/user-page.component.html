@@ -1,0 +1,14 @@
+<div class="user-area">
+    <div class="user-img"></div>
+    <div class="user-info">
+        <p id="name">{{ currentUser?.name }}</p>
+        <p id="online">online</p>
+    </div>
+</div>
+<div class="friend" *ngFor="let friend of friends">
+    <div class="friend-img"></div>
+    <div class="friend-info">
+        <p class="friend-name">{{ friend.name }}</p>
+        <p class="friend-last-seen">last seen at {{ friend.lastSeen }}</p>
+    </div>
+</div>
