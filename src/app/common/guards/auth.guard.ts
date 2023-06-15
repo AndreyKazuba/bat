@@ -2,16 +2,17 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UsersService } from '../services/users/users.service';
+import { AuthService } from '../services/auth/auth.service';
 
 export const authGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean => {
     const id = Number(route.paramMap.get('id'));
-    const usersService = inject(UsersService);
+    const authService = inject(AuthService);
     const router = inject(Router);
 
-    const isAuthenticated = usersService.isUserAuthenticated(id);
+    const isAuthenticated = authService.isUserAuthenticated(id);
     if (!isAuthenticated) {
         router.navigate(['log-in']);
     }
+    
     return isAuthenticated;
 };

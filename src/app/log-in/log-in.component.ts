@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { SpinnerButtonComponent } from '../common/components/spinner-button/spinner-button.component';
-import { UsersService } from '../common/services/users/users.service';
+import { AuthService } from '../common/services/auth/auth.service';
 
 @Component({
   selector: 'bat-log-in',
@@ -17,7 +17,7 @@ export class LogInComponent {
   @ViewChild("signInButton", { static: false })
   private signInButton: SpinnerButtonComponent | undefined;
 
-  constructor(private usersService: UsersService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSignIn(event: Event, signInForm: NgForm) {
     event.preventDefault();
@@ -30,7 +30,7 @@ export class LogInComponent {
     this.signInButton?.showSpinner();
 
     if (this.email && this.password) {
-      this.usersService.logIn(this.email, this.password)
+      this.authService.authenticate(this.email, this.password)
         .subscribe(authData => {
           if (authData.canAuthenticate) {
             this.router.navigate([`user-page/${authData.userId}`]);

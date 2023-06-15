@@ -17,9 +17,11 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     const userId = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUser(userId).subscribe(user => this.currentUser = user);
-    if (this.currentUser) {
-      this.userService.getFriends(this.currentUser.id).subscribe(friends => this.friends = friends);
-    }
+    this.userService.getUserById(userId).subscribe(user => {
+      this.currentUser = user
+      if (this.currentUser) {
+        this.userService.getFriends(this.currentUser.id).subscribe(friends => this.friends = friends);
+      }
+    });
   }
 }
